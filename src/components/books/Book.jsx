@@ -1,29 +1,29 @@
-import BookLogo from '../../assets/book.png'
-import Star from '../../assets/star.svg'
+// import Star from '../../assets/star.svg'
 
-export default function Book() {
+export default function Book({ book }) {
+  const { bookName, publish, writer, star, thumbnail, price, favorite } = book
   return (
     <>
       <div className="space-y-3">
         <div className="flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4">
-          <img className="max-w-[144px]" src={BookLogo} alt="book name" />
+          <img className="max-w-[144px] h-48" src={thumbnail} alt="book name" />
         </div>
 
         <div className="space-y-3">
-          <h4 className="text-lg font-bold lg:text-xl">
-            JavaScript and Jquery
-          </h4>
-          <p className="text-xs lg:text-sm">
-            By : <span>Jon Duckett</span>
-          </p>
+          <h4 className="text-lg font-bold lg:text-xl">{bookName}</h4>
+          <div className="flex justify-between">
+            <p className="text-xs lg:text-sm">
+              By : <span>{writer}</span>
+            </p>
+            <p className="text-xs lg:text-sm">
+              Publish Year : <span>{publish}</span>
+            </p>
+          </div>
           <div className="flex items-center justify-between">
-            <h4 className="text-lg font-bold lg:text-xl">$62</h4>
+            <h4 className="text-lg font-bold lg:text-xl">${price}</h4>
 
             <div className="flex items-center space-x-1">
-              <img src={Star} />
-              <img src={Star} />
-              <img src={Star} />
-              <img src={Star} />
+              <img src={star} />
               <span className="text-xs lg:text-sm">(4 Star)</span>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Book() {
                   d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
                 />
               </svg>
-              Favourite
+              Favorite
             </button>
           </div>
         </div>
