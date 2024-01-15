@@ -34,7 +34,7 @@ export const booksList = [
   },
   {
     id: 4,
-    bookName: 'JavaScript and JQuery: Interactive Front-End Web Development',
+    bookName: 'JavaScript and JQuery: Front-End Web Development',
     publish: 2013,
     writer: 'Jon Duckett',
     star: 3,
@@ -59,7 +59,7 @@ export const booksList = [
     bookName: 'JavaScript For Kids For Dummies',
     publish: 2015,
     writer: 'Eva Holland',
-    star: 3,
+    star: 2,
     thumbnail:
       'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQrBQFVmPBIfovTXmSBqMtsiFLmF9ZlQeAuGh5QvpBjn6I2UUQE',
     price: 9,

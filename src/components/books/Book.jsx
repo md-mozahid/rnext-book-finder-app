@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import { FaRegHeart } from 'react-icons/fa6'
-import Star from '../../assets/star.svg'
+import { FaRegHeart } from "react-icons/fa6";
+import Star from "../../assets/star.svg";
 
 export default function Book({ book, handleFavorite }) {
-  const [ratings, setRatings] = useState(book.star)
-
   const { id, bookName, publish, writer, star, thumbnail, price, favorite } =
-    book
+    book;
+
+  const arr = new Array(star).fill(0);
   return (
     <>
       <div className="space-y-3">
@@ -26,9 +25,10 @@ export default function Book({ book, handleFavorite }) {
           </div>
           <div className="flex items-center justify-between">
             <h4 className="text-lg font-bold lg:text-xl">${price}</h4>
-
             <div className="flex items-center space-x-1">
-              <img src={Star} />
+              {arr.map(() => {
+                return <img src={Star} alt="star" />;
+              })}
               <span className="text-xs lg:text-sm">({`${star} Star`})</span>
             </div>
           </div>
@@ -41,7 +41,8 @@ export default function Book({ book, handleFavorite }) {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-5 w-5">
+                className="h-5 w-5"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -53,10 +54,11 @@ export default function Book({ book, handleFavorite }) {
             <button
               className={`flex min-w-[132px] items-center justify-center gap-1 rounded-md  lg:py-1.5 py-1.5 transition-all ${
                 favorite
-                  ? 'bg-[#DC2954]/[14%] text-[#DC2954] hover:bg-[#DC2954]/[24%]'
-                  : 'bg-[#1C4336]/[14%] text-[#1C4336] hover:bg-[#1C4336]/[24%]'
+                  ? "bg-[#DC2954]/[14%] text-[#DC2954] hover:bg-[#DC2954]/[24%]"
+                  : "bg-[#1C4336]/[14%] text-[#1C4336] hover:bg-[#1C4336]/[24%]"
               }`}
-              onClick={() => handleFavorite(id)}>
+              onClick={() => handleFavorite(id)}
+            >
               <FaRegHeart />
               Favorite
             </button>
@@ -64,5 +66,5 @@ export default function Book({ book, handleFavorite }) {
         </div>
       </div>
     </>
-  )
+  );
 }
