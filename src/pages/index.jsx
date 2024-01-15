@@ -11,11 +11,27 @@ export default function Index() {
   const [books, setBooks] = useState(booksList)
 
   const onSearch = (searchValue) => {
-    const searchFiltered = books.filter((book) =>
-      book.bookName.toLowerCase().includes(searchValue.toLowerCase())
-    )
+    if (searchValue === '') {
+      setBooks([...books])
+    } else {
+      const searchFiltered = books.filter((book) =>
+        book.bookName.toLowerCase().includes(searchValue.toLowerCase())
+      )
+      setBooks([...searchFiltered])
+    }
+  }
 
-    setBooks([...searchFiltered])
+  // handleFavorite
+  const handleFavorite = (id) => {
+    const isFab = books.map((book) => {
+      if (book.id === id) {
+        return { ...book, favorite: !book.favorite }
+      } else {
+        return book
+      }
+    })
+
+    setBooks(isFab)
   }
 
   return (
@@ -23,7 +39,7 @@ export default function Index() {
       <Navbar />
       <main className="my-10 lg:my-14">
         <Header onSearch={onSearch} />
-        <Books books={books} />
+        <Books books={books} handleFavorite={handleFavorite} />
       </main>
       <Footer />
     </>
