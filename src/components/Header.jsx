@@ -1,7 +1,7 @@
 import Search from './Search'
 import Sort from './Sort'
 
-export default function Header({ onSearch }) {
+export default function Header({ onSearch, handleSortBooks }) {
   return (
     <>
       <header className="mb-8 lg:mb-10 mx-auto max-w-7xl">
@@ -11,13 +11,11 @@ export default function Header({ onSearch }) {
             <h2 className="mb-6 font-['Playfair_Display'] text-3xl font-bold lg:text-4xl">
               Trending Books of the Year
             </h2>
-
             <Search onSearch={onSearch} />
           </div>
-
-          <Sort  />
+          <Sort handleSortBooks={handleSortBooks} />
         </div>
       </header>
     </>
-  )
+  );
 }

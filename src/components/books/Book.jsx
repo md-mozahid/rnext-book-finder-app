@@ -26,8 +26,8 @@ export default function Book({ book, handleFavorite }) {
           <div className="flex items-center justify-between">
             <h4 className="text-lg font-bold lg:text-xl">${price}</h4>
             <div className="flex items-center space-x-1">
-              {arr.map(() => {
-                return <img src={Star} alt="star" />;
+              {arr.map((s, i) => {
+                return <img key={i} src={Star} alt="star" />;
               })}
               <span className="text-xs lg:text-sm">({`${star} Star`})</span>
             </div>

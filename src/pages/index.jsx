@@ -3,13 +3,12 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Books from '../components/books/Books'
-
-// database book list
 import { booksList } from '../db/db'
 
 export default function Index() {
   const [books, setBooks] = useState(booksList)
 
+  // search book
   const onSearch = (searchValue) => {
     if (searchValue === '') {
       setBooks([...books])
@@ -21,7 +20,7 @@ export default function Index() {
     }
   }
 
-  // handleFavorite
+  // handle Favorite
   const handleFavorite = (id) => {
     const isFab = books.map((book) => {
       if (book.id === id) {
@@ -35,19 +34,20 @@ export default function Index() {
   }
 
   // sort books
-  // const handleSort = (val) => {
-  //   const bookSort = books.sort(val)
-  //   setBooks(bookSort)
-  // }
+  const handleSortBooks = (val) => {
+    // console.log(val)
+    const sortBooks = books.sort((a, b) => a.val > b.val ? 1 : -1)
+    setBooks(sortBooks);
+  }
 
   return (
     <>
       <Navbar />
       <main className="my-10 lg:my-14">
-        <Header onSearch={onSearch} />
+        <Header onSearch={onSearch} handleSortBooks={handleSortBooks} />
         <Books books={books} handleFavorite={handleFavorite} />
       </main>
       <Footer />
     </>
-  )
+  );
 }
