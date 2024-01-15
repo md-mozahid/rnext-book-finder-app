@@ -15,7 +15,7 @@ export default function Header({ onSearch }) {
             <Search onSearch={onSearch} />
           </div>
 
-          <Sort />
+          <Sort  />
         </div>
       </header>
     </>

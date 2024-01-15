@@ -1,7 +1,10 @@
-// import Star from '../../assets/star.svg'
+import { useState } from 'react'
 import { FaRegHeart } from 'react-icons/fa6'
+import Star from '../../assets/star.svg'
 
 export default function Book({ book, handleFavorite }) {
+  const [ratings, setRatings] = useState(book.star)
+
   const { id, bookName, publish, writer, star, thumbnail, price, favorite } =
     book
   return (
@@ -25,8 +28,8 @@ export default function Book({ book, handleFavorite }) {
             <h4 className="text-lg font-bold lg:text-xl">${price}</h4>
 
             <div className="flex items-center space-x-1">
-              <img src={star} />
-              <span className="text-xs lg:text-sm">(4 Star)</span>
+              <img src={Star} />
+              <span className="text-xs lg:text-sm">({`${star} Star`})</span>
             </div>
           </div>
 

@@ -34,6 +34,12 @@ export default function Index() {
     setBooks(isFab)
   }
 
+  // sort books
+  // const handleSort = (val) => {
+  //   const bookSort = books.sort(val)
+  //   setBooks(bookSort)
+  // }
+
   return (
     <>
       <Navbar />
