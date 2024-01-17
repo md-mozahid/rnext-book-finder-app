@@ -8,12 +8,12 @@ export default function Book({ book, handleFavorite }) {
   const arr = new Array(star).fill(0);
   return (
     <>
-      <div className="space-y-3">
+      <div className="space-y-3 flex flex-col justify-end">
         <div className="flex items-center justify-center rounded-md border border-[#324251]/30 bg-white p-4">
           <img className="max-w-[144px]" src={thumbnail} alt="book name" />
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 ">
           <h4 className="text-lg font-bold lg:text-xl">{bookName}</h4>
           <div className="flex justify-between">
             <p className="text-xs lg:text-sm">
@@ -27,7 +27,7 @@ export default function Book({ book, handleFavorite }) {
             <h4 className="text-lg font-bold lg:text-xl">${price}</h4>
             <div className="flex items-center space-x-1">
               {arr.map((s, i) => {
-                return <img key={i} src={Star} alt="star" />
+                return <img key={i} src={Star} alt="star" />;
               })}
               <span className="text-xs lg:text-sm">({`${star} Star`})</span>
             </div>
@@ -41,7 +41,8 @@ export default function Book({ book, handleFavorite }) {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-5 w-5">
+                className="h-5 w-5"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -53,10 +54,11 @@ export default function Book({ book, handleFavorite }) {
             <button
               className={`flex min-w-[132px] items-center justify-center gap-1 rounded-md  lg:py-1.5 py-1.5 transition-all ${
                 favorite
-                  ? 'bg-[#DC2954]/[14%] text-[#DC2954] hover:bg-[#DC2954]/[24%]'
-                  : 'bg-[#1C4336]/[14%] text-[#1C4336] hover:bg-[#1C4336]/[24%]'
+                  ? "bg-[#DC2954]/[14%] text-[#DC2954] hover:bg-[#DC2954]/[24%]"
+                  : "bg-[#1C4336]/[14%] text-[#1C4336] hover:bg-[#1C4336]/[24%]"
               }`}
-              onClick={() => handleFavorite(id)}>
+              onClick={() => handleFavorite(id)}
+            >
               <FaRegHeart />
               Favorite
             </button>
@@ -64,5 +66,5 @@ export default function Book({ book, handleFavorite }) {
         </div>
       </div>
     </>
-  )
+  );
 }
