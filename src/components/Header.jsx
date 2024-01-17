@@ -17,5 +17,5 @@ export default function Header({ onSearch, handleSortBooks }) {
         </div>
       </header>
     </>
-  );
+  )
 }

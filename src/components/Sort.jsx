@@ -1,13 +1,9 @@
-import { useState } from "react";
-
 export default function Sort({ handleSortBooks }) {
-  const [sortBooks, setSortBooks] = useState(false);
+  // const [type, setType] = useState('none')
 
-  console.log(sortBooks);
-
-  // const handleSortBooks = (value) => {
-  //   setSortBooks(value);
-  // };
+  const handleChange = (value) => {
+    handleSortBooks(value)
+  }
 
   return (
     <>
@@ -16,10 +12,8 @@ export default function Sort({ handleSortBooks }) {
           className="cursor-pointer rounded-md border px-4 py-2 text-center text-gray-600"
           name="sortBy"
           id="sortBy"
-          value={sortBooks}
-          // onChange={(e) => handleChange(e.target.value)}
-          onChange={(e) => handleSortBooks(e.target.value)}
-        >
+          // value={type}
+          onChange={(e) => handleChange(e.target.value)}>
           <option value="">Sort</option>
           <option value="name_asc">Name (A-Z)</option>
           <option value="name_desc">Name (Z-A)</option>
@@ -28,5 +22,5 @@ export default function Sort({ handleSortBooks }) {
         </select>
       </div>
     </>
-  );
+  )
 }

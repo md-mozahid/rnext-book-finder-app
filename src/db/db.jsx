@@ -52,7 +52,7 @@ export const booksList = [
     thumbnail:
       'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQoRcN0edkc26DmBuMMbCCHhytrZSTOglscOdd9QH7Ih6gIJ4QB',
     price: 9,
-    favorite: false,
+    favorite: true,
   },
   {
     id: 6,

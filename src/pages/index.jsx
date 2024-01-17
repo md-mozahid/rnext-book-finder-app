@@ -6,12 +6,13 @@ import Books from '../components/books/Books'
 import { booksList } from '../db/db'
 
 export default function Index() {
+  const [allBooks] = useState(booksList)
   const [books, setBooks] = useState(booksList)
 
   // search book
   const onSearch = (searchValue) => {
     if (searchValue === '') {
-      setBooks([...books])
+      setBooks(allBooks)
     } else {
       const searchFiltered = books.filter((book) =>
         book.bookName.toLowerCase().includes(searchValue.toLowerCase())
@@ -34,10 +35,28 @@ export default function Index() {
   }
 
   // sort books
-  const handleSortBooks = (val) => {
-    // console.log(val)
-    const sortBooks = books.sort((a, b) => a.val > b.val ? 1 : -1)
-    setBooks(sortBooks);
+  const handleSortBooks = (value) => {
+    // console.log(value)
+    const [type, order] = value.split('_')
+    // console.log(type, order)
+    if (type === 'name') {
+      // console.log(type)
+      const sorting = [...books].sort((a, b) =>
+        order === 'desc'
+          ? b.bookName.localeCompare(a.bookName)
+          : a.bookName.localeCompare(b.bookName)
+      )
+      console.log(sorting)
+      setBooks(sorting)
+    }
+    if (type === 'year') {
+      // console.log(type)
+      const sorting = [...books].sort((a, b) =>
+        order === 'desc' ? b.publish - a.publish : a.publish - b.publish
+      )
+      // console.log(sorting)
+      setBooks(sorting)
+    }
   }
 
   return (
@@ -49,5 +68,5 @@ export default function Index() {
       </main>
       <Footer />
     </>
-  );
+  )
 }
